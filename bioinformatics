@@ -1,4 +1,4 @@
-mport re,sys
+import re,sys
 input_1 = sys.argv[1]
 f1 = open(input_1,'r')
 seq = f1.read()
