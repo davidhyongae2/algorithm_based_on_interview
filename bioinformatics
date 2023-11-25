@@ -1,0 +1,108 @@
+mport re,sys
+input_1 = sys.argv[1]
+f1 = open(input_1,'r')
+seq = f1.read()
+#seq1 = "ML[A-Z][A-Z][IV]R"
+count =0
+for lines in f1:
+	if lines.startswith('>'):
+   	 header=line    
+   	 nextline = line.next()
+	else:
+   	seq = nextline
+   	count+=1
+   	re.findall(seq,nextline)
+   	fout.write(header + '\t' +count +'\t'+seq +'\n')
+
+print seq
+f1.close()
+
+
+
+each line:
+"sequence_id\tquality string\n"
+
+output 
+
+"sequence_id\t<sequence>\t<quality>\n"
+
+Sequence file:
+
+seq_1	gtacgacgatcgactagc
+seq_2	gacgtacgtacgactacgtcga
+seq_3	nnnnnnnnnnnnnn
+
+Quality file:
+
+seq_1	wiuehrwiuyeiuwh
+seq_2	kjfy3wrfhiwgiyfwd
+seq_3	jwerhfiuwijhwrfksjd
+
+output:
+
+seq_1	gtacgacgatcgactag	wiuehrwiuyeiuwh
+....
+
+
+import os, sys
+import numpy as np
+import zip
+seq = ['gtacgacgatcgactagc','gacgtacgtacgactacgtcga','nnnnnnnnnnnnnn']
+quality = ['wiuehrwiuyeiuwh','kjfy3wrfhiwgiyfwd','jwerhfiuwijhwrfksjd']
+name = ['seq_1','seq_2','seq_3']
+
+#example1 (recursion)
+a1 = list()
+a2 = list()
+a3 = np.array(a1)
+a4 = np.array(a2)
+total = list()
+for x in seq:
+   a1.append(x)
+for y in quality:
+   a2.append(y)
+for i, (a3, a4) in enumerate(zip(a1,a2)):
+   a3 = str(a1)
+   a1 = str(a3)
+   total = [name[i],a1,a3]
+
+#example2 (direction solution)
+a1 = list()
+a2 = list()
+a3 = []
+a4 = []
+
+total = list()
+for x in seq:
+  a1.append(x)
+for y in quality:
+  a2.append(y)
+
+for i, (a3, a4) in enumerate(zip(a1,a2)):
+  total = [name[i],[a3,a4]]
+  print(total)
+
+
+
+#example3 ( linked list)
+class ListNode:
+   #initial node
+   def __init__(self, data=None, next=None):
+       self.data = data
+       self.next = next
+   #return the node
+   def __init__(self):
+       return init(self.data)
+
+class LinkedList:
+   #start of the node
+   def __init__(self):
+       self.head = None
+   #start at the node and add.
+   def attend(self, data):
+       self.head = ListNode(data=data, next=self.head)
+if __name__ == "__main__":
+   ll = LinkedList()
+   ll.attend('seq_1    gtacgacgatcgactagc wiuehrwiuyeiuwh')
+   ll.attend("seq_2    gacgtacgtacgactacgtcga kjfy3wrfhiwgiyfwd")
+   ll.attend("seq_3    nnnnnnnnnnnnnn  jwerhfiuwijhwrfksjd")
